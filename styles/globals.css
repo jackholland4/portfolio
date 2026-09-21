@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ── Theme: backgrounds ── */
+  --c-bg-0: #0a0a0a;
+  --c-bg-1: #141414;
+  --c-bg-2: #1a1a1a;
+  --c-bg-3: #1f1f1f;
+
+  /* ── Theme: text ── */
+  --c-txt-0: #f5f5f5;
+  --c-txt-1: #a0a0a0;
+  --c-txt-2: #c0c0c0;
+  --c-txt-3: #888;
+  --c-txt-6: #444;
+
+  /* ── Theme: borders ── */
+  --c-border-sm: rgba(255,255,255,0.06);
+  --c-border-md: rgba(255,255,255,0.08);
+  --c-border-lg: rgba(255,255,255,0.1);
+
+  /* ── Header ── */
+  --c-header-bg: rgba(10,10,10,0.95);
+  --c-header-border: rgba(255,255,255,0.06);
+
+  /* ── Accent — swap these for your own brand color ── */
+  --c-accent: #c8a15c;
+  --c-accent-light: #d9b878;
+  --c-accent-dark: #a67f3d;
+  --c-accent-ink: #14110b;
+  --c-accent-border: rgba(200, 161, 92, 0.4);
+  --c-accent-glow: rgba(200, 161, 92, 0.25);
+
+  /* ── Gradients ── */
+  --gradient-hero: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+}
+
+[data-theme="light"] {
+  --c-bg-0: #ffffff;
+  --c-bg-1: #f5f5f5;
+  --c-bg-2: #ededed;
+  --c-bg-3: #e4e4e4;
+
+  --c-txt-0: #111111;
+  --c-txt-1: #555555;
+  --c-txt-2: #444444;
+  --c-txt-3: #666666;
+  --c-txt-6: #999999;
+
+  --c-border-sm: rgba(0,0,0,0.07);
+  --c-border-md: rgba(0,0,0,0.09);
+  --c-border-lg: rgba(0,0,0,0.11);
+
+  --c-header-bg: rgba(255,255,255,0.95);
+  --c-header-border: rgba(0,0,0,0.08);
+
+  --gradient-hero: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-bg-0);
+  color: var(--c-txt-0);
+}
+
+/* ── Ken Burns keyframes ────────────────────────────────── */
+@keyframes kenburns-1 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-2%, -1%); }
+}
+@keyframes kenburns-2 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.12) translate(2%, 1%); }
+}
+@keyframes kenburns-3 {
+  0%   { transform: scale(1.0) translate(0, 0); }
+  100% { transform: scale(1.15) translate(-1%, 2%); }
+}
+@keyframes kenburns-4 {
+  0%   { transform: scale(1.0) translate(1%, -1%); }
+  100% { transform: scale(1.12) translate(-1%, 1%); }
+}
+
+/* Mobile — subtler zoom */
+@media (max-width: 768px) {
+  @keyframes kenburns-1 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, -0.5%); }
+  }
+  @keyframes kenburns-2 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.07) translate(1%, 0.5%); }
+  }
+  @keyframes kenburns-3 {
+    0%   { transform: scale(1.0) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-0.5%, 1%); }
+  }
+  @keyframes kenburns-4 {
+    0%   { transform: scale(1.0) translate(0.5%, -0.5%); }
+    100% { transform: scale(1.07) translate(-0.5%, 0.5%); }
+  }
+}
