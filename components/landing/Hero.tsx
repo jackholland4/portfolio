@@ -1,46 +1,43 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import KenBurnsSlideshow, { type Slide } from './KenBurnsSlideshow'
+import Image from 'next/image'
 import { siteConfig } from '@/lib/site-config'
 
-export default function Hero({ photos }: { photos: (string | Slide)[] }) {
+export default function Hero() {
   const { scrollY } = useScroll()
   const contentOpacity = useTransform(scrollY, [0, 320], [1, 0])
   const contentY = useTransform(scrollY, [0, 320], [0, -56])
 
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Layer 1 — slideshow */}
-      <KenBurnsSlideshow images={photos} />
-
-      {/* Layer 2 — gradient overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: 'var(--gradient-hero)', zIndex: 2 }}
-      />
-
-      {/* Layer 3 — content */}
+    // Opening page is a deliberate blank-white intro — forced to the light
+    // theme regardless of the site's global dark/light setting, so it reads
+    // as white no matter what the visitor has toggled.
+    <section
+      data-theme="light"
+      className="relative h-screen overflow-hidden bg-[var(--c-bg-0)]"
+    >
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center z-10 select-none px-6"
         style={{ opacity: contentOpacity, y: contentY }}
       >
         {/* Name */}
-        <h1
-          className="font-display font-bold text-[var(--c-txt-0)] leading-none flex flex-wrap justify-center text-center"
-          style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)', letterSpacing: '-0.02em' }}
+        <motion.h1
+          className="flex justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.8, ease: 'easeOut' }}
         >
-          {siteConfig.name.split('').map((letter, i) => (
-            <motion.span
-              key={i}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.04, duration: 0.6, ease: 'easeOut' }}
-            >
-              {letter === ' ' ? ' ' : letter}
-            </motion.span>
-          ))}
-        </h1>
+          <Image
+            src="/brand/signature.png"
+            alt={siteConfig.name}
+            width={2200}
+            height={669}
+            priority
+            className="site-signature w-auto"
+            style={{ height: 'clamp(2.5rem, 7vw, 6rem)' }}
+          />
+        </motion.h1>
 
         {/* Tagline */}
         <motion.p

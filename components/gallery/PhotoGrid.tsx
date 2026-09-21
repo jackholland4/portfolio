@@ -106,6 +106,11 @@ export default function PhotoGrid({ photos }: { photos: Photo[] }) {
                 sizes="90vw"
                 priority
               />
+              {photos[openIndex].location && (
+                <p className="absolute left-1 bottom-1 font-body text-xs tracking-wide text-white/70">
+                  {photos[openIndex].location}
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}

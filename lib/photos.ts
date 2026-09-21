@@ -4,6 +4,8 @@ export interface Photo {
   src: string
   width: number
   height: number
+  /** Hand-entered place name, e.g. "San Francisco, CA". See data/locations.json. */
+  location?: string
 }
 
 export interface Category {
@@ -24,27 +26,4 @@ export function getCategory(slug: string): Category | undefined {
 
 export function getAllPhotos(): Photo[] {
   return data.categories.flatMap((c) => c.photos)
-}
-
-/** Spreads photos across categories so the hero slideshow isn't dominated by one gallery. */
-export function getFeaturedPhotos(limit = 24): Photo[] {
-  const categories = data.categories
-  if (categories.length === 0) return []
-
-  const featured: Photo[] = []
-  let round = 0
-  while (featured.length < limit) {
-    let addedAny = false
-    for (const category of categories) {
-      const photo = category.photos[round]
-      if (photo) {
-        featured.push(photo)
-        addedAny = true
-        if (featured.length >= limit) break
-      }
-    }
-    if (!addedAny) break
-    round++
-  }
-  return featured
 }

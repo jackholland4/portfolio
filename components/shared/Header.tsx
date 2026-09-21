@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useTheme } from './ThemeProvider'
 import { siteConfig } from '@/lib/site-config'
@@ -51,6 +52,11 @@ export default function Header() {
 
   return (
     <header
+      // While transparent, the header floats over the landing page's
+      // forced-white hero — scope it to the light theme too so its text
+      // and logo stay dark-on-white instead of inheriting the site's
+      // (possibly dark) global theme colors and disappearing.
+      data-theme={transparent ? 'light' : undefined}
       className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 lg:px-20"
       style={{
         backgroundColor: transparent ? 'transparent' : 'var(--c-header-bg)',
@@ -63,9 +69,16 @@ export default function Header() {
       {/* Logo */}
       <Link
         href="/"
-        className="font-display font-bold text-lg text-[var(--c-txt-0)] tracking-tight hover:text-[var(--c-accent-light)] transition-colors duration-200 group"
+        className="inline-flex flex-col group"
       >
-        {siteConfig.name}
+        <Image
+          src="/brand/signature.png"
+          alt={siteConfig.name}
+          width={2200}
+          height={669}
+          priority
+          className="site-signature h-7 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-200"
+        />
         <span className="block h-0.5 w-0 group-hover:w-full bg-[var(--c-accent)] transition-all duration-300 ease-out" />
       </Link>
 

@@ -29,7 +29,7 @@ export default function GalleryCategories({ categories }: { categories: Category
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category, i) => {
-              const cover = category.photos[0]
+              const cover = category.photos.slice(0, 3)
               return (
                 <motion.div
                   key={category.slug}
@@ -41,16 +41,55 @@ export default function GalleryCategories({ categories }: { categories: Category
                   <Link href={`/gallery/${category.slug}`}>
                     <Card className="flex flex-col h-full overflow-hidden group">
                       <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
-                        {cover && (
+                        {cover.length === 1 && (
                           <Image
-                            src={cover.src}
+                            src={cover[0].src}
                             alt=""
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-105"
                             sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           />
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                        {cover.length === 2 && (
+                          <div className="grid grid-cols-2 gap-0.5 w-full h-full">
+                            {cover.map((photo) => (
+                              <div key={photo.src} className="relative overflow-hidden">
+                                <Image
+                                  src={photo.src}
+                                  alt=""
+                                  fill
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                  sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        {cover.length >= 3 && (
+                          <div className="grid grid-cols-2 grid-rows-2 gap-0.5 w-full h-full">
+                            <div className="relative row-span-2 overflow-hidden">
+                              <Image
+                                src={cover[0].src}
+                                alt=""
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
+                              />
+                            </div>
+                            {cover.slice(1, 3).map((photo) => (
+                              <div key={photo.src} className="relative overflow-hidden">
+                                <Image
+                                  src={photo.src}
+                                  alt=""
+                                  fill
+                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                  sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                       </div>
 
                       <div className="p-6 flex items-center justify-between">

@@ -3,9 +3,7 @@ export const siteConfig = {
   title: 'Jack Holland Photography',
   tagline: 'Photography',
   description: 'A photography portfolio by Jack Holland.',
-  // Left blank on purpose — set this once you've decided you want an
-  // address published on the public site.
-  contactEmail: '',
+  contactEmail: 'jackholland2004@gmail.com',
   nav: [
     { href: '/gallery', label: 'Work' },
     { href: '/about', label: 'About' },

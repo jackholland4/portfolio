@@ -1,4 +1,5 @@
 import { siteConfig } from '@/lib/site-config'
+import EmailGate from '@/components/contact/EmailGate'
 
 export const metadata = { title: 'Contact' }
 
@@ -10,12 +11,9 @@ export default function ContactPage() {
           Contact
         </h1>
         {siteConfig.contactEmail ? (
-          <a
-            href={`mailto:${siteConfig.contactEmail}`}
-            className="font-body text-lg text-[var(--c-accent)] hover:underline"
-          >
-            {siteConfig.contactEmail}
-          </a>
+          <EmailGate
+            encodedEmail={Buffer.from(siteConfig.contactEmail).toString('base64')}
+          />
         ) : (
           <p className="font-body text-[var(--c-txt-1)] leading-relaxed">
             Set <code className="text-[var(--c-txt-0)]">contactEmail</code> in{' '}

@@ -1,3 +1,217 @@
 {
-  "categories": []
+  "categories": [
+    {
+      "slug": "people",
+      "title": "People",
+      "photos": [
+        {
+          "src": "/photos/people/img-7892.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8201.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8320.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/people/img-8413.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8427.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-9060.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/people/img-9152.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/people/img-9817.jpg",
+          "width": 1600,
+          "height": 2400
+        }
+      ]
+    },
+    {
+      "slug": "places",
+      "title": "Places",
+      "photos": [
+        {
+          "src": "/photos/places/img-6897.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/places/img-6913.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-6918.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-6926.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-6928.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-6950.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/places/img-6952.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/places/img-6956.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-6961.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-7263.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-7566.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-7568.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-7885.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8062.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8087.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8111.jpg",
+          "width": 2400,
+          "height": 1765
+        },
+        {
+          "src": "/photos/places/img-8117.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8129.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8132.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8137.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8141.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8182.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/places/img-8235.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/places/img-8259.jpg",
+          "width": 1600,
+          "height": 2400
+        }
+      ]
+    },
+    {
+      "slug": "things",
+      "title": "Things",
+      "photos": [
+        {
+          "src": "/photos/things/img-3563.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/things/img-7281.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/things/img-7704.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/things/img-7798.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/things/img-8184.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/things/img-8191.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/things/img-8205.jpg",
+          "width": 1600,
+          "height": 2400
+        }
+      ]
+    }
+  ]
 }

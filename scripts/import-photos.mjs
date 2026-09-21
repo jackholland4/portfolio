@@ -11,6 +11,17 @@
 // source folder as either:
 //   - subfolders of images, one subfolder per gallery category, or
 //   - a single flat folder of images, imported as one "Portfolio" category
+//
+// "Page Elements" is treated as reserved — it holds site assets (logo,
+// contact card) rather than gallery photos, so it's skipped even though it
+// contains images.
+//
+// Location captions: data/locations.json is a hand-maintained sidecar
+// mapping each photo's public src path to a place name (e.g.
+// "San Francisco, CA"), shown as a caption in the gallery lightbox. It is
+// never overwritten by this script — on each run, any new photos are added
+// to it with an empty string for you to fill in by hand, and existing
+// entries (including ones you've already typed) are left alone.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -20,6 +31,7 @@ const DEFAULT_SOURCE = '/Users/jackholland/Downloads/Personal/Photos/Photo Repos
 const PROJECT_ROOT = path.resolve(new URL('.', import.meta.url).pathname, '..')
 const PUBLIC_PHOTOS_DIR = path.join(PROJECT_ROOT, 'public', 'photos')
 const MANIFEST_PATH = path.join(PROJECT_ROOT, 'data', 'photos.json')
+const LOCATIONS_PATH = path.join(PROJECT_ROOT, 'data', 'locations.json')
 
 const MAX_DIMENSION = 2400
 const JPEG_QUALITY = 85
@@ -27,6 +39,8 @@ const JPEG_QUALITY = 85
 const IMAGE_EXTENSIONS = new Set([
   '.jpg', '.jpeg', '.png', '.webp', '.avif', '.tif', '.tiff', '.heic', '.heif',
 ])
+
+const RESERVED_DIR_NAMES = new Set(['page elements'])
 
 function slugify(input) {
   return (
@@ -57,7 +71,12 @@ function listImageFiles(dir) {
 
 function discoverCategories(sourceDir) {
   const entries = fs.readdirSync(sourceDir, { withFileTypes: true })
-  const subdirs = entries.filter((e) => e.isDirectory() && !e.name.startsWith('.'))
+  const subdirs = entries.filter(
+    (e) =>
+      e.isDirectory() &&
+      !e.name.startsWith('.') &&
+      !RESERVED_DIR_NAMES.has(e.name.toLowerCase())
+  )
   const rootImages = listImageFiles(sourceDir)
 
   const categories = subdirs
@@ -113,6 +132,16 @@ async function main() {
 
   fs.mkdirSync(PUBLIC_PHOTOS_DIR, { recursive: true })
 
+  let locations = {}
+  if (fs.existsSync(LOCATIONS_PATH)) {
+    try {
+      locations = JSON.parse(fs.readFileSync(LOCATIONS_PATH, 'utf8'))
+    } catch (err) {
+      console.warn(`Couldn't parse data/locations.json (${err.message}) — starting fresh.`)
+    }
+  }
+  const locationsBefore = Object.keys(locations).length
+
   const manifest = { categories: [] }
   let totalCopied = 0
   let totalSkipped = 0
@@ -138,7 +167,12 @@ async function main() {
 
       try {
         const { width, height } = await processImage(srcPath, destPath)
-        photos.push({ src: `/photos/${category.slug}/${slug}.jpg`, width, height })
+        const src = `/photos/${category.slug}/${slug}.jpg`
+
+        if (!(src in locations)) locations[src] = ''
+        const location = locations[src]
+
+        photos.push({ src, width, height, ...(location ? { location } : {}) })
         totalCopied++
       } catch (err) {
         console.warn(`Skipped ${file}: ${err.message}`)
@@ -153,6 +187,7 @@ async function main() {
 
   fs.mkdirSync(path.dirname(MANIFEST_PATH), { recursive: true })
   fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n')
+  fs.writeFileSync(LOCATIONS_PATH, JSON.stringify(locations, null, 2) + '\n')
 
   const categoryWord = manifest.categories.length === 1 ? 'category' : 'categories'
   console.log(`\nImported ${totalCopied} photo(s) into ${manifest.categories.length} ${categoryWord}.`)
@@ -164,6 +199,13 @@ async function main() {
   }
   if (totalCopied > 200) {
     console.log(`That's a lot of photos for one site — consider curating before you deploy.`)
+  }
+  const newLocations = Object.keys(locations).length - locationsBefore
+  if (newLocations > 0) {
+    console.log(
+      `Added ${newLocations} new entr${newLocations === 1 ? 'y' : 'ies'} to data/locations.json — ` +
+        `fill in place names there and re-run this script to apply them.`
+    )
   }
   console.log(`Manifest written to data/photos.json. Run "npm run dev" to preview.`)
 }

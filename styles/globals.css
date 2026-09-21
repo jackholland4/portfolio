@@ -32,14 +32,6 @@
   --c-accent-ink: #14110b;
   --c-accent-border: rgba(200, 161, 92, 0.4);
   --c-accent-glow: rgba(200, 161, 92, 0.25);
-
-  /* ── Gradients ── */
-  --gradient-hero: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.3) 40%,
-    rgba(10, 10, 10, 0.95) 100%
-  );
 }
 
 [data-theme="light"] {
@@ -60,58 +52,22 @@
 
   --c-header-bg: rgba(255,255,255,0.95);
   --c-header-border: rgba(0,0,0,0.08);
-
-  --gradient-hero: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(0, 0, 0, 0.15) 40%,
-    rgba(255, 255, 255, 0.85) 100%
-  );
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+/* Signature wordmark is a scanned black-ink asset — invert it to read as
+   light-on-dark by default, and flip back for the light theme. */
+.site-signature {
+  filter: invert(1);
+}
+[data-theme='light'] .site-signature {
+  filter: none;
+}
+
 body {
   background-color: var(--c-bg-0);
   color: var(--c-txt-0);
-}
-
-/* ── Ken Burns keyframes ────────────────────────────────── */
-@keyframes kenburns-1 {
-  0%   { transform: scale(1.0) translate(0, 0); }
-  100% { transform: scale(1.15) translate(-2%, -1%); }
-}
-@keyframes kenburns-2 {
-  0%   { transform: scale(1.0) translate(0, 0); }
-  100% { transform: scale(1.12) translate(2%, 1%); }
-}
-@keyframes kenburns-3 {
-  0%   { transform: scale(1.0) translate(0, 0); }
-  100% { transform: scale(1.15) translate(-1%, 2%); }
-}
-@keyframes kenburns-4 {
-  0%   { transform: scale(1.0) translate(1%, -1%); }
-  100% { transform: scale(1.12) translate(-1%, 1%); }
-}
-
-/* Mobile — subtler zoom */
-@media (max-width: 768px) {
-  @keyframes kenburns-1 {
-    0%   { transform: scale(1.0) translate(0, 0); }
-    100% { transform: scale(1.08) translate(-1%, -0.5%); }
-  }
-  @keyframes kenburns-2 {
-    0%   { transform: scale(1.0) translate(0, 0); }
-    100% { transform: scale(1.07) translate(1%, 0.5%); }
-  }
-  @keyframes kenburns-3 {
-    0%   { transform: scale(1.0) translate(0, 0); }
-    100% { transform: scale(1.08) translate(-0.5%, 1%); }
-  }
-  @keyframes kenburns-4 {
-    0%   { transform: scale(1.0) translate(0.5%, -0.5%); }
-    100% { transform: scale(1.07) translate(-0.5%, 0.5%); }
-  }
 }
