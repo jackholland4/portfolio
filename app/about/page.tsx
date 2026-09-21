@@ -10,7 +10,7 @@ export default function AboutPage() {
           About
         </h1>
         <p className="font-body text-[var(--c-txt-1)] leading-relaxed mb-10">
-          My name is Jack Holland. I'm an amateur photographer from Fairfield, Connecticut. I shoot on a Canon EOS Rebel.
+          Amateur photographer from Fairfield, Connecticut. I shoot on a Canon EOS Rebel.
           <code className="text-[var(--c-txt-0)]">app/about/page.tsx</code>.
         </p>
         <Button href="/contact" variant="primary">
