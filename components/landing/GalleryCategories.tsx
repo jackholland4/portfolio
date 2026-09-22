@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import Card from '@/components/ui/Card'
 import type { Category } from '@/lib/photos'
 
 export default function GalleryCategories({ categories }: { categories: Category[] }) {
@@ -38,69 +37,67 @@ export default function GalleryCategories({ categories }: { categories: Category
                   viewport={{ once: true, margin: '-80px' }}
                   transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.1 }}
                 >
-                  <Link href={`/gallery/${category.slug}`}>
-                    <Card className="flex flex-col h-full overflow-hidden group">
-                      <div className="relative aspect-[4/3] overflow-hidden rounded-t-2xl">
-                        {cover.length === 1 && (
-                          <Image
-                            src={cover[0].src}
-                            alt=""
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                          />
-                        )}
-                        {cover.length === 2 && (
-                          <div className="grid grid-cols-2 gap-0.5 w-full h-full">
-                            {cover.map((photo) => (
-                              <div key={photo.src} className="relative overflow-hidden">
-                                <Image
-                                  src={photo.src}
-                                  alt=""
-                                  fill
-                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                  sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
-                                />
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                        {cover.length >= 3 && (
-                          <div className="grid grid-cols-2 grid-rows-2 gap-0.5 w-full h-full">
-                            <div className="relative row-span-2 overflow-hidden">
+                  <Link href={`/gallery/${category.slug}`} className="flex flex-col h-full">
+                    <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--c-border-md)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--c-accent-border)] hover:shadow-[0_0_32px_var(--c-accent-glow)]">
+                      {cover.length === 1 && (
+                        <Image
+                          src={cover[0].src}
+                          alt=""
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        />
+                      )}
+                      {cover.length === 2 && (
+                        <div className="grid grid-cols-2 gap-0.5 w-full h-full">
+                          {cover.map((photo) => (
+                            <div key={photo.src} className="relative overflow-hidden">
                               <Image
-                                src={cover[0].src}
+                                src={photo.src}
                                 alt=""
                                 fill
                                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                                 sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
                               />
                             </div>
-                            {cover.slice(1, 3).map((photo) => (
-                              <div key={photo.src} className="relative overflow-hidden">
-                                <Image
-                                  src={photo.src}
-                                  alt=""
-                                  fill
-                                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                  sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
-                                />
-                              </div>
-                            ))}
+                          ))}
+                        </div>
+                      )}
+                      {cover.length >= 3 && (
+                        <div className="grid grid-cols-2 grid-rows-2 gap-0.5 w-full h-full">
+                          <div className="relative row-span-2 overflow-hidden">
+                            <Image
+                              src={cover[0].src}
+                              alt=""
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
+                            />
                           </div>
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
-                      </div>
+                          {cover.slice(1, 3).map((photo) => (
+                            <div key={photo.src} className="relative overflow-hidden">
+                              <Image
+                                src={photo.src}
+                                alt=""
+                                fill
+                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                sizes="(min-width: 1024px) 17vw, (min-width: 768px) 25vw, 50vw"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                    </div>
 
-                      <div className="p-6 flex items-center justify-between">
-                        <h2 className="font-display font-bold text-[var(--c-txt-0)] text-lg">
-                          {category.title}
-                        </h2>
-                        <span className="font-body text-xs text-[var(--c-txt-3)]">
-                          {category.photos.length} photo{category.photos.length === 1 ? '' : 's'}
-                        </span>
-                      </div>
-                    </Card>
+                    <div className="pt-4 px-1 flex items-center justify-between">
+                      <h2 className="font-display font-bold text-[var(--c-accent)] text-lg">
+                        {category.title}
+                      </h2>
+                      <span className="font-body text-xs text-[var(--c-txt-3)]">
+                        {category.photos.length} photo{category.photos.length === 1 ? '' : 's'}
+                      </span>
+                    </div>
                   </Link>
                 </motion.div>
               )
