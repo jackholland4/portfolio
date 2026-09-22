@@ -5,6 +5,26 @@
       "title": "People",
       "photos": [
         {
+          "src": "/photos/people/img-0208.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-0248.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-0694.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-0862.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
           "src": "/photos/people/img-7892.jpg",
           "width": 1600,
           "height": 2400,
@@ -23,6 +43,16 @@
           "location": "Cambridge, MA"
         },
         {
+          "src": "/photos/people/img-8368.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/people/img-8370.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
           "src": "/photos/people/img-8413.jpg",
           "width": 1600,
           "height": 2400,
@@ -35,10 +65,45 @@
           "location": "Cambridge, MA"
         },
         {
+          "src": "/photos/people/img-8733.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8736.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8793.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8832.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
+          "src": "/photos/people/img-8932.jpg",
+          "width": 1600,
+          "height": 2400
+        },
+        {
           "src": "/photos/people/img-9060.jpg",
           "width": 2400,
           "height": 1600,
           "location": "Cambridge, MA"
+        },
+        {
+          "src": "/photos/people/img-9071.jpg",
+          "width": 2400,
+          "height": 1600
+        },
+        {
+          "src": "/photos/people/img-9079.jpg",
+          "width": 2400,
+          "height": 1600
         },
         {
           "src": "/photos/people/img-9152.jpg",
@@ -51,6 +116,11 @@
           "width": 1600,
           "height": 2400,
           "location": "Cambridge, MA"
+        },
+        {
+          "src": "/photos/people/img-9992.jpg",
+          "width": 1600,
+          "height": 2400
         }
       ]
     },
@@ -129,6 +199,11 @@
           "width": 1600,
           "height": 2400,
           "location": "Nantucket, MA"
+        },
+        {
+          "src": "/photos/places/img-7822.jpg",
+          "width": 2400,
+          "height": 1600
         },
         {
           "src": "/photos/places/img-7885.jpg",
