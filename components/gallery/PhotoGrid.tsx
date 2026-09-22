@@ -107,7 +107,7 @@ export default function PhotoGrid({ photos }: { photos: Photo[] }) {
                 priority
               />
               {photos[openIndex].location && (
-                <p className="absolute left-1 bottom-1 font-body text-xs tracking-wide text-white/70">
+                <p className="absolute left-1 top-1 font-body text-xs tracking-wide text-white/70">
                   {photos[openIndex].location}
                 </p>
               )}
