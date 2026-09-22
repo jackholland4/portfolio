@@ -11,7 +11,7 @@ export default function GalleryCategories({ categories }: { categories: Category
       <div className="max-w-7xl mx-auto">
         {/* Section label */}
         <motion.p
-          className="font-display text-sm font-semibold tracking-[0.2em] uppercase text-[var(--c-accent)] mb-12"
+          className="font-accent text-sm font-semibold tracking-[0.2em] uppercase text-[var(--c-accent)] mb-12"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -91,7 +91,7 @@ export default function GalleryCategories({ categories }: { categories: Category
                     </div>
 
                     <div className="pt-4 px-1 flex items-center justify-between">
-                      <h2 className="font-display font-bold text-[var(--c-accent)] text-lg">
+                      <h2 className="font-accent font-bold text-[var(--c-accent)] text-lg">
                         {category.title}
                       </h2>
                       <span className="font-body text-xs text-[var(--c-txt-3)]">

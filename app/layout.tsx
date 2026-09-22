@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { Space_Grotesk, Inter, Quicksand } from 'next/font/google'
 import Header from '@/components/shared/Header'
 import Footer from '@/components/shared/Footer'
 import { ThemeProvider } from '@/components/shared/ThemeProvider'
@@ -19,6 +19,13 @@ const inter = Inter({
   display: 'swap',
 })
 
+const quicksand = Quicksand({
+  subsets: ['latin'],
+  variable: '--font-accent',
+  weight: ['500', '600', '700'],
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
@@ -28,7 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable}`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${quicksand.variable}`}
       suppressHydrationWarning
     >
       <head>

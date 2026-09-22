@@ -10,6 +10,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-display)', 'sans-serif'],
         body: ['var(--font-body)', 'sans-serif'],
+        accent: ['var(--font-accent)', 'sans-serif'],
       },
       colors: {
         accent: {

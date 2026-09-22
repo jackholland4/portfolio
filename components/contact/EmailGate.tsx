@@ -62,7 +62,7 @@ export default function EmailGate({ encodedEmail }: { encodedEmail: string }) {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className="font-body text-lg text-[var(--c-accent)] hover:underline"
+        className="font-accent text-lg text-[var(--c-accent)] hover:underline"
       >
         {email}
       </motion.a>
@@ -115,7 +115,7 @@ export default function EmailGate({ encodedEmail }: { encodedEmail: string }) {
   return (
     <button
       onClick={() => setStage('puzzle')}
-      className="font-display font-semibold text-lg text-[var(--c-accent)] hover:text-[var(--c-accent-light)] underline underline-offset-4 decoration-[var(--c-accent-border)] transition-colors"
+      className="font-accent font-semibold text-lg text-[var(--c-accent)] hover:text-[var(--c-accent-light)] underline underline-offset-4 decoration-[var(--c-accent-border)] transition-colors"
     >
       Inquire
     </button>
