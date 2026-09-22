@@ -10,12 +10,7 @@ export default function Hero() {
   const contentY = useTransform(scrollY, [0, 320], [0, -56])
 
   return (
-    // Opening page is a deliberate blank-white intro — locked to the light
-    // theme regardless of the site's dark default elsewhere.
-    <section
-      data-theme="light"
-      className="relative h-screen overflow-hidden bg-[var(--c-bg-0)]"
-    >
+    <section className="relative h-screen overflow-hidden bg-[var(--c-bg-0)]">
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center z-10 select-none px-6"
         style={{ opacity: contentOpacity, y: contentY }}
@@ -33,7 +28,7 @@ export default function Hero() {
             width={2200}
             height={669}
             priority
-            className="site-signature w-auto"
+            className="w-auto"
             style={{ height: 'clamp(2.5rem, 7vw, 6rem)' }}
           />
         </motion.h1>

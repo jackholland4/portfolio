@@ -11,7 +11,7 @@ export default function Footer() {
             alt={siteConfig.name}
             width={2200}
             height={669}
-            className="site-signature h-4 w-auto opacity-70"
+            className="h-4 w-auto opacity-70"
           />
           {' · '}{siteConfig.tagline}
         </span>

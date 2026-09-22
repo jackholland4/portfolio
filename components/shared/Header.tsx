@@ -26,11 +26,6 @@ export default function Header() {
 
   return (
     <header
-      // While transparent, the header floats over the landing page's
-      // forced-white hero — scope it to the light theme too so its text
-      // and logo stay dark-on-white instead of inheriting the site's
-      // dark theme colors and disappearing against the white background.
-      data-theme={transparent ? 'light' : undefined}
       className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 lg:px-20"
       style={{
         backgroundColor: transparent ? 'transparent' : 'var(--c-header-bg)',
@@ -51,7 +46,7 @@ export default function Header() {
           width={2200}
           height={669}
           priority
-          className="site-signature h-7 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-200"
+          className="h-7 w-auto opacity-90 group-hover:opacity-100 transition-opacity duration-200"
         />
         <span className="block h-0.5 w-0 group-hover:w-full bg-[var(--c-accent)] transition-all duration-300 ease-out" />
       </Link>
