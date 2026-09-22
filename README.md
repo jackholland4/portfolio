@@ -1,10 +1,5 @@
 # Jack Holland Photography
 
-A Next.js photography portfolio, adapted from the `gymc` landing-page
-architecture — the Ken Burns hero, dark/light theming, and card-grid
-mechanics are reused as-is; the title and the simulation-tool tabs are
-replaced with a photo gallery.
-
 ## Setup
 
 ```
