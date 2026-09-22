@@ -10,9 +10,8 @@ export default function Hero() {
   const contentY = useTransform(scrollY, [0, 320], [0, -56])
 
   return (
-    // Opening page is a deliberate blank-white intro — forced to the light
-    // theme regardless of the site's global dark/light setting, so it reads
-    // as white no matter what the visitor has toggled.
+    // Opening page is a deliberate blank-white intro — locked to the light
+    // theme regardless of the site's dark default elsewhere.
     <section
       data-theme="light"
       className="relative h-screen overflow-hidden bg-[var(--c-bg-0)]"

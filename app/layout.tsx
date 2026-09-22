@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Space_Grotesk, Inter, Quicksand } from 'next/font/google'
 import Header from '@/components/shared/Header'
 import Footer from '@/components/shared/Footer'
-import { ThemeProvider } from '@/components/shared/ThemeProvider'
 import { siteConfig } from '@/lib/site-config'
 import '@/styles/globals.css'
 
@@ -33,24 +32,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${quicksand.variable}`}
-      suppressHydrationWarning
-    >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `try{var t=localStorage.getItem('portfolio-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}`,
-          }}
-        />
-      </head>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${quicksand.variable}`}>
       <body className="bg-[var(--c-bg-0)] text-[var(--c-txt-0)] font-body antialiased">
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   )
