@@ -23,8 +23,9 @@
 // to it with an empty string for you to fill in by hand, and existing
 // entries (including ones you've already typed) are left alone.
 //
-// Edited versions: if a photo has a sibling named "<name> <N> Edited.<ext>"
-// (Apple Photos' default export naming), that edited file's pixels are used
+// Edited versions: if a photo has a sibling named "<name> Edited.<ext>" or
+// "<name> <N> Edited.<ext>" (Apple Photos' export naming — the number only
+// appears when exporting a batch), that edited file's pixels are used
 // instead of the original — but the *original* filename still drives the
 // slug/src, so the photo's URL and any location caption already assigned
 // to it stay the same when an edit is dropped in later.
@@ -47,7 +48,9 @@ const IMAGE_EXTENSIONS = new Set([
 ])
 
 const RESERVED_DIR_NAMES = new Set(['page elements'])
-const EDITED_SUFFIX_PATTERN = /^(.*) \d+ Edited$/i
+// Apple Photos exports a batch as "<name> N Edited.<ext>" but a single
+// share/export as just "<name> Edited.<ext>" — the number is optional.
+const EDITED_SUFFIX_PATTERN = /^(.*?)(?: \d+)? Edited$/i
 
 function slugify(input) {
   return (
