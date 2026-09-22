@@ -22,6 +22,12 @@
 // never overwritten by this script — on each run, any new photos are added
 // to it with an empty string for you to fill in by hand, and existing
 // entries (including ones you've already typed) are left alone.
+//
+// Edited versions: if a photo has a sibling named "<name> <N> Edited.<ext>"
+// (Apple Photos' default export naming), that edited file's pixels are used
+// instead of the original — but the *original* filename still drives the
+// slug/src, so the photo's URL and any location caption already assigned
+// to it stay the same when an edit is dropped in later.
 
 import fs from 'node:fs'
 import path from 'node:path'
@@ -41,6 +47,7 @@ const IMAGE_EXTENSIONS = new Set([
 ])
 
 const RESERVED_DIR_NAMES = new Set(['page elements'])
+const EDITED_SUFFIX_PATTERN = /^(.*) \d+ Edited$/i
 
 function slugify(input) {
   return (
@@ -69,6 +76,36 @@ function listImageFiles(dir) {
     .sort()
 }
 
+// Pairs each original image with its "<name> <N> Edited.<ext>" sibling, if
+// one exists, so the edited pixels get used while the original filename
+// stays the identity used for slugs. Returns [{ name, sourceFile }].
+function resolveSourceFiles(dir) {
+  const files = listImageFiles(dir)
+
+  const editedByBase = new Map()
+  for (const file of files) {
+    const match = path.parse(file).name.match(EDITED_SUFFIX_PATTERN)
+    if (match) editedByBase.set(match[1], file)
+  }
+
+  const resolved = []
+  for (const file of files) {
+    if (EDITED_SUFFIX_PATTERN.test(path.parse(file).name)) continue // paired in below
+    const base = path.parse(file).name
+    const edited = editedByBase.get(base)
+    if (edited) editedByBase.delete(base)
+    resolved.push({ name: file, sourceFile: edited ?? file })
+  }
+
+  // Edited files with no matching original (e.g. the original was moved or
+  // renamed) — import them standalone under their own name.
+  for (const file of editedByBase.values()) {
+    resolved.push({ name: file, sourceFile: file })
+  }
+
+  return resolved.sort((a, b) => a.name.localeCompare(b.name))
+}
+
 function discoverCategories(sourceDir) {
   const entries = fs.readdirSync(sourceDir, { withFileTypes: true })
   const subdirs = entries.filter(
@@ -77,14 +114,14 @@ function discoverCategories(sourceDir) {
       !e.name.startsWith('.') &&
       !RESERVED_DIR_NAMES.has(e.name.toLowerCase())
   )
-  const rootImages = listImageFiles(sourceDir)
+  const rootImages = resolveSourceFiles(sourceDir)
 
   const categories = subdirs
     .map((dir) => ({
       slug: slugify(dir.name),
       title: titleize(dir.name),
       sourceDir: path.join(sourceDir, dir.name),
-      files: listImageFiles(path.join(sourceDir, dir.name)),
+      files: resolveSourceFiles(path.join(sourceDir, dir.name)),
     }))
     .filter((c) => c.files.length > 0)
 
@@ -154,7 +191,7 @@ async function main() {
     const usedSlugs = new Set()
 
     for (const file of category.files) {
-      const base = slugify(path.parse(file).name)
+      const base = slugify(path.parse(file.name).name)
       let slug = base
       let n = 2
       while (usedSlugs.has(slug)) {
@@ -162,7 +199,7 @@ async function main() {
       }
       usedSlugs.add(slug)
 
-      const srcPath = path.join(category.sourceDir, file)
+      const srcPath = path.join(category.sourceDir, file.sourceFile)
       const destPath = path.join(destDir, `${slug}.jpg`)
 
       try {
@@ -175,7 +212,7 @@ async function main() {
         photos.push({ src, width, height, ...(location ? { location } : {}) })
         totalCopied++
       } catch (err) {
-        console.warn(`Skipped ${file}: ${err.message}`)
+        console.warn(`Skipped ${file.name}: ${err.message}`)
         totalSkipped++
       }
     }
