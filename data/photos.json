@@ -7,42 +7,50 @@
         {
           "src": "/photos/people/img-7892.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Sargent's Purchase, NH"
         },
         {
           "src": "/photos/people/img-8201.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "New Canaan, CT"
         },
         {
           "src": "/photos/people/img-8320.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/people/img-8413.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/people/img-8427.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/people/img-9060.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/people/img-9152.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/people/img-9817.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Cambridge, MA"
         }
       ]
     },
@@ -53,122 +61,146 @@
         {
           "src": "/photos/places/img-6897.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Muir Beach, CA"
         },
         {
           "src": "/photos/places/img-6913.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Tamalpais Valley, CA"
         },
         {
           "src": "/photos/places/img-6918.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Carmel, CA"
         },
         {
           "src": "/photos/places/img-6926.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-6928.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-6950.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-6952.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-6956.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-6961.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Big Sur, CA"
         },
         {
           "src": "/photos/places/img-7263.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/places/img-7566.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Nantucket, MA"
         },
         {
           "src": "/photos/places/img-7568.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Nantucket, MA"
         },
         {
           "src": "/photos/places/img-7885.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Sargent's Purchase, NH"
         },
         {
           "src": "/photos/places/img-8062.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Gloucester, MA"
         },
         {
           "src": "/photos/places/img-8087.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Gloucester, MA"
         },
         {
           "src": "/photos/places/img-8111.jpg",
           "width": 2400,
-          "height": 1765
+          "height": 1765,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8117.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8129.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8132.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8137.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8141.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Kennebunkport, ME"
         },
         {
           "src": "/photos/places/img-8182.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "New Canaan, CT"
         },
         {
           "src": "/photos/places/img-8235.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "Fairfield, CT"
         },
         {
           "src": "/photos/places/img-8259.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Fairfield, CT"
         }
       ]
     },
@@ -179,37 +211,44 @@
         {
           "src": "/photos/things/img-3563.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Providence, RI"
         },
         {
           "src": "/photos/things/img-7281.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "New Canaan, CT"
         },
         {
           "src": "/photos/things/img-7704.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Cambridge, MA"
         },
         {
           "src": "/photos/things/img-7798.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "Nantucket, MA"
         },
         {
           "src": "/photos/things/img-8184.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "New Canaan, CT"
         },
         {
           "src": "/photos/things/img-8191.jpg",
           "width": 2400,
-          "height": 1600
+          "height": 1600,
+          "location": "New Canaan, CT"
         },
         {
           "src": "/photos/things/img-8205.jpg",
           "width": 1600,
-          "height": 2400
+          "height": 2400,
+          "location": "New Canaan, CT"
         }
       ]
     }
