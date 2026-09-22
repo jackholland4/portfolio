@@ -38,7 +38,7 @@ export default function GalleryCategories({ categories }: { categories: Category
                   transition={{ duration: 0.6, ease: 'easeOut', delay: i * 0.1 }}
                 >
                   <Link href={`/gallery/${category.slug}`} className="flex flex-col h-full">
-                    <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--c-border-md)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--c-accent-border)] hover:shadow-[0_0_32px_var(--c-accent-glow)]">
+                    <div className="group relative aspect-[4/3] overflow-hidden border border-[var(--c-border-md)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--c-accent-border)] hover:shadow-[0_0_32px_var(--c-accent-glow)]">
                       {cover.length === 1 && (
                         <Image
                           src={cover[0].src}

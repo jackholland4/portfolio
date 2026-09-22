@@ -19,7 +19,7 @@ export default function PhotoGrid({ photos }: { photos: Photo[] }) {
             alt=""
             width={photo.width}
             height={photo.height}
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto"
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
           {photo.location && (
